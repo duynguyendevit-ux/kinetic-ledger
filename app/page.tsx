@@ -169,7 +169,8 @@ export default function Home() {
         </header>
 
         {/* Content */}
-        <div className="p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8">
+        <div className="p-4 sm:p-6 lg:p-8 xl:p-12">
+          <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8">
           {loading ? (
             <div className="flex items-center justify-center h-96">
               <div className="text-on-surface-variant">Loading...</div>
@@ -294,6 +295,7 @@ export default function Home() {
               </div>
             </>
           )}
+          </div>
         </div>
       </main>
     </div>
