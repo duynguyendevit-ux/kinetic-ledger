@@ -103,24 +103,24 @@ export default function Home() {
             <span>Providers</span>
           </a>
           <a 
+            href="/tokens"
             className="flex items-center gap-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg whitespace-nowrap" 
-            href="#"
             onClick={() => setMenuOpen(false)}
           >
             <span className="material-symbols-outlined flex-shrink-0">vpn_key</span>
             <span>Tokens</span>
           </a>
           <a 
+            href="/analytics"
             className="flex items-center gap-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg whitespace-nowrap" 
-            href="#"
             onClick={() => setMenuOpen(false)}
           >
             <span className="material-symbols-outlined flex-shrink-0">leaderboard</span>
             <span>Analytics</span>
           </a>
           <a 
+            href="/settings"
             className="flex items-center gap-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg whitespace-nowrap" 
-            href="#"
             onClick={() => setMenuOpen(false)}
           >
             <span className="material-symbols-outlined flex-shrink-0">settings</span>
