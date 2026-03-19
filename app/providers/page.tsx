@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import AuthGuard from '@/components/AuthGuard'
 
 interface Provider {
@@ -73,18 +72,18 @@ export default function ProvidersPage() {
           </div>
         </div>
         
-        <nav className="flex-1 px-4 space-y-1">
-          <Link 
+        <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
+          <a 
             href="/"
             className="flex items-center space-x-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg" 
             onClick={() => setMenuOpen(false)}
           >
             <span className="material-symbols-outlined">dashboard</span>
             <span>Dashboard</span>
-          </Link>
+          </a>
           <a 
+            href="/providers"
             className="flex items-center space-x-3 py-3 px-4 rounded-lg bg-[#222a3d] text-[#00e5ff] font-bold border-l-4 border-[#00e5ff]" 
-            href="#"
             onClick={() => setMenuOpen(false)}
           >
             <span className="material-symbols-outlined">hub</span>
