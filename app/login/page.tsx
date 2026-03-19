@@ -15,14 +15,28 @@ export default function LoginPage() {
     setError('')
     setLoading(true)
 
-    // Simple auth - same as 9router style
-    if (username === 'admin' && password === 'admin123') {
-      // Store in localStorage like 9router
-      localStorage.setItem('kinetic_auth', 'true')
-      localStorage.setItem('kinetic_user', username)
-      router.push('/')
-    } else {
-      setError('Invalid username or password')
+    try {
+      // Call API like 9router
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        // Store in localStorage like 9router
+        localStorage.setItem('kinetic_auth', 'true')
+        localStorage.setItem('kinetic_user', data.user.username)
+        localStorage.setItem('kinetic_token', data.token)
+        router.push('/')
+      } else {
+        setError(data.error || 'Invalid username or password')
+        setLoading(false)
+      }
+    } catch (err) {
+      setError('Connection error. Please try again.')
       setLoading(false)
     }
   }
