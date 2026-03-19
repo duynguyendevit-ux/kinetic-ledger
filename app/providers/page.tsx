@@ -42,7 +42,9 @@ export default function ProvidersPage() {
 
   const activeProviders = providers.filter(p => p.status === 'active').length
   const totalRequests = providers.reduce((sum, p) => sum + p.requests, 0)
-  const avgLatency = Math.round(providers.filter(p => p.status === 'active').reduce((sum, p) => sum + p.latency, 0) / activeProviders)
+  const avgLatency = activeProviders > 0 
+    ? Math.round(providers.filter(p => p.status === 'active').reduce((sum, p) => sum + p.latency, 0) / activeProviders)
+    : 0
 
   return (
     <AuthGuard>
@@ -105,27 +107,27 @@ export default function ProvidersPage() {
             <span>Providers</span>
           </a>
           <a 
-            className="flex items-center space-x-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg" 
+            className="flex items-center gap-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg whitespace-nowrap" 
             href="#"
             onClick={() => setMenuOpen(false)}
           >
-            <span className="material-symbols-outlined">vpn_key</span>
+            <span className="material-symbols-outlined flex-shrink-0">vpn_key</span>
             <span>Tokens</span>
           </a>
           <a 
-            className="flex items-center space-x-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg" 
+            className="flex items-center gap-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg whitespace-nowrap" 
             href="#"
             onClick={() => setMenuOpen(false)}
           >
-            <span className="material-symbols-outlined">leaderboard</span>
+            <span className="material-symbols-outlined flex-shrink-0">leaderboard</span>
             <span>Analytics</span>
           </a>
           <a 
-            className="flex items-center space-x-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg" 
+            className="flex items-center gap-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg whitespace-nowrap" 
             href="#"
             onClick={() => setMenuOpen(false)}
           >
-            <span className="material-symbols-outlined">settings</span>
+            <span className="material-symbols-outlined flex-shrink-0">settings</span>
             <span>Settings</span>
           </a>
         </nav>
