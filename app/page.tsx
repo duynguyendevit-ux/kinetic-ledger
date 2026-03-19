@@ -65,8 +65,8 @@ export default function Home() {
 
       {/* Sidebar */}
       <aside className={`
-        fixed left-0 top-0 h-full w-64 flex flex-col z-40 bg-[#0b1326] border-r border-[#222a3d]/50 shadow-[4px_0_24px_rgba(0,0,0,0.3)]
-        transition-transform duration-300 ease-in-out
+        fixed left-0 top-0 h-screen w-64 flex flex-col z-40 bg-[#0b1326] border-r border-[#222a3d]/50 shadow-[4px_0_24px_rgba(0,0,0,0.3)]
+        transition-transform duration-300 ease-in-out overflow-y-auto
         ${menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         <div className="p-6">
