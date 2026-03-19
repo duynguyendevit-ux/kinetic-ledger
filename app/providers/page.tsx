@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import AuthGuard from '@/components/AuthGuard'
+// import AuthGuard from '@/components/AuthGuard'
 
 interface Provider {
   id: string
@@ -38,7 +38,6 @@ export default function ProvidersPage() {
   const avgLatency = Math.round(providers.filter(p => p.status === 'active').reduce((sum, p) => sum + p.latency, 0) / activeProviders)
 
   return (
-    <AuthGuard>
     <div className="min-h-screen bg-background">
       {/* Mobile Menu Button */}
       <button
@@ -295,6 +294,5 @@ export default function ProvidersPage() {
         </div>
       </main>
     </div>
-    </AuthGuard>
   )
 }
