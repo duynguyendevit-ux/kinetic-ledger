@@ -91,7 +91,7 @@ export default function ProvidersPage() {
           </a>
           <a 
             href="/providers"
-            className="flex items-center space-x-3 py-3 px-4 rounded-lg bg-[#222a3d] text-[#00e5ff] font-bold border-l-4 border-[#00e5ff]" 
+            className="flex items-center space-x-3 py-3 px-4 pl-3 rounded-lg bg-[#222a3d] text-[#00e5ff] font-bold border-l-4 border-[#00e5ff]" 
             onClick={() => setMenuOpen(false)}
           >
             <span className="material-symbols-outlined">hub</span>
