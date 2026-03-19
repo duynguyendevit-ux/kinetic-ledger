@@ -1,22 +1,29 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 
 export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
+    // Skip auth check on login page
+    if (pathname === '/login') {
+      setIsLoading(false)
+      return
+    }
+
     const auth = localStorage.getItem('kinetic_auth')
     if (auth === 'true') {
       setIsAuthenticated(true)
+      setIsLoading(false)
     } else {
       router.push('/login')
     }
-    setIsLoading(false)
-  }, [router])
+  }, [router, pathname])
 
   if (isLoading) {
     return (
@@ -29,7 +36,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
     )
   }
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated && pathname !== '/login') {
     return null
   }
 
