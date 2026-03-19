@@ -19,17 +19,25 @@ export default function ProvidersPage() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    // Mock data - replace with real API call
-    setTimeout(() => {
-      setProviders([
-        { id: '1', name: 'OpenAI', status: 'active', models: 12, requests: 45230, latency: 120, uptime: 99.9 },
-        { id: '2', name: 'Anthropic', status: 'active', models: 8, requests: 32100, latency: 95, uptime: 99.8 },
-        { id: '3', name: 'Google AI', status: 'active', models: 15, requests: 28900, latency: 110, uptime: 99.7 },
-        { id: '4', name: 'Mistral AI', status: 'inactive', models: 5, requests: 0, latency: 0, uptime: 0 },
-        { id: '5', name: 'Azure AI', status: 'active', models: 20, requests: 51200, latency: 85, uptime: 99.95 },
-      ])
-      setLoading(false)
-    }, 500)
+    // Fetch real providers from API
+    fetch('/api/providers')
+      .then(r => r.json())
+      .then(data => {
+        setProviders(data.providers || [])
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error('Failed to fetch providers:', err)
+        // Fallback to mock data
+        setProviders([
+          { id: '1', name: 'OpenAI', status: 'active', models: 12, requests: 45230, latency: 120, uptime: 99.9 },
+          { id: '2', name: 'Anthropic', status: 'active', models: 8, requests: 32100, latency: 95, uptime: 99.8 },
+          { id: '3', name: 'Google AI', status: 'active', models: 15, requests: 28900, latency: 110, uptime: 99.7 },
+          { id: '4', name: 'Mistral AI', status: 'inactive', models: 5, requests: 0, latency: 0, uptime: 0 },
+          { id: '5', name: 'Azure AI', status: 'active', models: 20, requests: 51200, latency: 85, uptime: 99.95 },
+        ])
+        setLoading(false)
+      })
   }, [])
 
   const activeProviders = providers.filter(p => p.status === 'active').length
