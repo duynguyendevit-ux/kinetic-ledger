@@ -114,7 +114,7 @@ export default function ProvidersPage() {
           </a>
         </nav>
 
-        <div className="p-4 border-t border-[#222a3d]/30">
+        <div className="p-4 border-t border-[#222a3d]/30 space-y-3">
           <div className="glass-panel p-4 rounded-xl">
             <p className="text-[10px] text-on-surface-variant mb-1 uppercase tracking-wider font-bold">API Status</p>
             <div className="flex items-center gap-2">
@@ -122,6 +122,16 @@ export default function ProvidersPage() {
               <span className="text-sm text-tertiary font-medium">Connected</span>
             </div>
           </div>
+          <button
+            onClick={() => {
+              document.cookie = 'kinetic_auth=; path=/; max-age=0'
+              window.location.href = '/login'
+            }}
+            className="w-full flex items-center justify-center space-x-2 py-2 px-4 bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-error transition-all rounded-lg"
+          >
+            <span className="material-symbols-outlined text-lg">logout</span>
+            <span className="text-sm font-medium">Logout</span>
+          </button>
         </div>
       </aside>
 
