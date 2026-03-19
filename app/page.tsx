@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import AuthGuard from '@/components/AuthGuard'
 
 interface UsageStats {
   byModel?: Record<string, { requests: number; promptTokens: number; completionTokens: number }>
@@ -42,6 +43,7 @@ export default function Home() {
   const activeProviders = combos.length
 
   return (
+    <AuthGuard>
     <div className="min-h-screen bg-background">
       {/* Mobile Menu Button */}
       <button
@@ -295,5 +297,6 @@ export default function Home() {
         </div>
       </main>
     </div>
+    </AuthGuard>
   )
 }
