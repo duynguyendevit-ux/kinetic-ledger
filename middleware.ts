@@ -2,6 +2,10 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
+  // Temporarily disabled - cookie auth not working on Vercel
+  return NextResponse.next()
+  
+  /*
   const authCookie = request.cookies.get('kinetic_auth')
   const isLoginPage = request.nextUrl.pathname === '/login'
 
@@ -16,6 +20,7 @@ export function middleware(request: NextRequest) {
   }
 
   return NextResponse.next()
+  */
 }
 
 export const config = {
