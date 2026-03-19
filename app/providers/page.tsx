@@ -83,18 +83,18 @@ export default function ProvidersPage() {
         <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
           <a 
             href="/"
-            className="flex items-center space-x-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg" 
+            className="flex items-center gap-3 py-3 px-4 text-[#bac9cc] hover:text-[#c3f5ff] hover:bg-[#131b2e] transition-colors duration-200 rounded-lg whitespace-nowrap" 
             onClick={() => setMenuOpen(false)}
           >
-            <span className="material-symbols-outlined">dashboard</span>
+            <span className="material-symbols-outlined flex-shrink-0">dashboard</span>
             <span>Dashboard</span>
           </a>
           <a 
             href="/providers"
-            className="flex items-center space-x-3 py-3 px-4 pl-3 rounded-lg bg-[#222a3d] text-[#00e5ff] font-bold border-l-4 border-[#00e5ff]" 
+            className="flex items-center gap-3 py-3 px-4 pl-3 rounded-lg bg-[#222a3d] text-[#00e5ff] font-bold border-l-4 border-[#00e5ff] whitespace-nowrap" 
             onClick={() => setMenuOpen(false)}
           >
-            <span className="material-symbols-outlined">hub</span>
+            <span className="material-symbols-outlined flex-shrink-0">hub</span>
             <span>Providers</span>
           </a>
           <a 
